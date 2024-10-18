@@ -19,13 +19,11 @@ export default function Home() {
   };
 
   useEffect(() => {
-    window.onload = function() {
-      if (window.innerWidth <= 1200) {
-        setSidebarShow(false)
-        
-      }
+    if (window.innerWidth <= 1200) {
+      setSidebarShow(false);
     }
   }, []);
+
   return (
     <div className='container'>
       <PageHeader />
