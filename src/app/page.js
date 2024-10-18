@@ -25,10 +25,20 @@ export default function Home() {
   const hideSidebar = () => {
     setSidebarShow(false);
   };
+
+  // console.log(window.innerWidth);
+  
+  window.onload = function() {
+    if (window.innerWidth <= 1200) {
+      setSidebarShow(false)
+      // console.log("hello");
+      
+    }
+  }
   
   return (
-    <div>
-      {/* <PageHeader /> */}
+    <div className='container'>
+      <PageHeader />
 
       <div className="main-container">
         <VideoPlaylist sidebarShow={sidebarShow} hideSidebar={hideSidebar}/>

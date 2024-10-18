@@ -121,7 +121,7 @@ function VideoMainBody({ videos }) {
               );
             })}
           </div>
-      </div>
+        </div>
         
       </div>
     </div>
