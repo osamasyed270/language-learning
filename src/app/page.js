@@ -7,14 +7,6 @@ import VideoMainBody from "./components/VideoMainBody";
 import VideoControlsBar from "./components/VideoControlsBar";
 
 export default function Home() {
-  // const [videos, setVideos] = useState([]);
-  // const [selectedVideo, setSelectedVideo] = useState(null);
-  
-  // useEffect(() => {
-  //   fetch('/public/data/playlist.json').then((res) => res.json()).then((data) => setVideos(data))
-  // }, []);
-
-  // console.log(videos);
 
   const [sidebarShow, setSidebarShow] = useState(true)
 
@@ -26,16 +18,14 @@ export default function Home() {
     setSidebarShow(false);
   };
 
-  // console.log(window.innerWidth);
-  
-  window.onload = function() {
-    if (window.innerWidth <= 1200) {
-      setSidebarShow(false)
-      // console.log("hello");
-      
+  useEffect(() => {
+    window.onload = function() {
+      if (window.innerWidth <= 1200) {
+        setSidebarShow(false)
+        
+      }
     }
-  }
-  
+  }, []);
   return (
     <div className='container'>
       <PageHeader />
