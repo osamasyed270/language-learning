@@ -4,7 +4,7 @@ import videoInfo from "../videoTranscriptInfo.json";
 function VideoMainBody({ videos }) {
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
   const [transcriptPhrases, setTranscriptPhrases] = useState([]);
-  const [selectedText, setSelectedText] = useState('');
+  const [selectedRange, setSelectedRange] = useState({ startIndex: -1, endIndex: -1, phraseIndex: -1 });
 
   useEffect(() => {
     setTranscriptPhrases(videoInfo.videoLesson.transcription[0].phrases);
@@ -34,67 +34,61 @@ function VideoMainBody({ videos }) {
     }, 100);
   };
 
-  const handleTextSelect = () => {
-    const selection = window.getSelection().toString().trim();
-
-    const foundInTranscript = transcriptPhrases.some(phrase => 
-      phrase.words.some(item => item.word === selection)
-    );
-
-    if (foundInTranscript) {
-      setSelectedText(selection);
-    } else {
-      setSelectedText(''); 
-    }
+  const handleWordSelect = (phraseIndex, wordIndex, type) => {
+    setSelectedRange(prevRange => {
+      if (type === 'start') {
+        return { ...prevRange, startIndex: wordIndex, phraseIndex };
+      } else if (type === 'end') {
+        return { ...prevRange, endIndex: wordIndex, phraseIndex };
+      }
+      return prevRange;
+    });
   };
 
   const handleSplit = (direction) => {
+    const { startIndex, endIndex, phraseIndex } = selectedRange;
 
-    const updatedPhrases = [];
-
-    transcriptPhrases.forEach(phrase => {
-      const words = phrase.words;
-      const selectedIndex = words.findIndex(item => item.word === selectedText);
-
-      if (selectedIndex !== -1) {
+    const updatedPhrases = transcriptPhrases.map((phrase, index) => {
+      if (index === phraseIndex) {
+        const words = phrase.words;
 
         let before, after;
 
         if (direction === 'forward') {
-          before = words.slice(0, selectedIndex + 1); 
-          after = words.slice(selectedIndex + 1);     
+          before = words.slice(0, endIndex + 1);  
+          after = words.slice(endIndex + 1);      
         } else if (direction === 'backward') {
-          before = words.slice(0, selectedIndex);
-          after = words.slice(selectedIndex);          
+          before = words.slice(0, startIndex);
+          after = words.slice(startIndex);
         }
 
         const newSentence1 = { ...phrase, words: before }; 
         const newSentence2 = { ...phrase, words: after };  
 
-        updatedPhrases.push(newSentence1);
-        updatedPhrases.push(newSentence2);
-      } else {
-        updatedPhrases.push(phrase);
+        return [newSentence1, newSentence2]; 
       }
+
+      return [phrase];
     });
 
-    setTranscriptPhrases(updatedPhrases);
+    const flattenedPhrases = updatedPhrases.flat();
+
+    setTranscriptPhrases(flattenedPhrases);
   };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
-        handleSplit('forward');
+        handleSplit('forward'); 
       }
     };
+
     document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedText]);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedRange]);
 
   return (
-    <div className='video-main-body' onMouseUp={handleTextSelect}>
+    <div className='video-main-body'>
       
       <div className="video-main-body-inner">
         <div className='player-container'>
@@ -111,7 +105,11 @@ function VideoMainBody({ videos }) {
                 <div className='sentence' key={phraseIndex}>
                   {phrase.words.map((item, itemIndex) => {
                     return (
-                      <span key={itemIndex}>
+                      <span 
+                        key={itemIndex}
+                        onMouseDown={() => handleWordSelect(phraseIndex, itemIndex, 'start')}
+                        onMouseUp={() => handleWordSelect(phraseIndex, itemIndex, 'end')}
+                      >
                         <div className={item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "word active" : "word"}>{item.word}</div>
                         <div> </div>
                       </span>
