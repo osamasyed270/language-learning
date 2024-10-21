@@ -5,6 +5,7 @@ function VideoMainBody({ videos }) {
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
   const [transcriptPhrases, setTranscriptPhrases] = useState([]);
   const [selectedRange, setSelectedRange] = useState({ startIndex: -1, endIndex: -1, phraseIndex: -1 });
+  const [highlightedWord, setHighlightedWord] = useState({ phraseIndex: -1, wordIndex: -1 });
 
   useEffect(() => {
     setTranscriptPhrases(videoInfo.videoLesson.transcription[0].phrases);
@@ -43,6 +44,8 @@ function VideoMainBody({ videos }) {
       }
       return prevRange;
     });
+
+    setHighlightedWord({ phraseIndex, wordIndex });
   };
 
   const handleSplit = (direction) => {
@@ -110,7 +113,13 @@ function VideoMainBody({ videos }) {
                         onMouseDown={() => handleWordSelect(phraseIndex, itemIndex, 'start')}
                         onMouseUp={() => handleWordSelect(phraseIndex, itemIndex, 'end')}
                       >
-                        <div className={item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "word active" : "word"}>{item.word}</div>
+                        <div 
+                        className=
+                        {`word 
+                          ${item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "active" : ""} 
+                          ${highlightedWord.phraseIndex === phraseIndex && highlightedWord.wordIndex === itemIndex ? 'highlight' : ''}
+                        `}
+                        >{item.word}</div>
                         <div> </div>
                       </span>
                     );

@@ -154,6 +154,9 @@ html, body {
   text-decoration: underline;
   font-weight: 700;
 }
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence .highlight {
+  background: #6896f2;
+}
 .container .video-controls-bar {
   width: 100%;
   position: relative;
