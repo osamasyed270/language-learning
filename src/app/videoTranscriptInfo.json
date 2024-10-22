@@ -4875,79 +4875,157 @@
                 "word": "Perry",
                 "startTime": "4.04",
                 "endTime": "4.42",
-                "_id": "66fc18f09202e12fccef45b8"
+                "_id": "66fc18f09202e12fccef45b8",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "Concilio",
                 "startTime": "4.42",
                 "endTime": "5.15",
-                "_id": "66fc18f09202e12fccef45b9"
+                "_id": "66fc18f09202e12fccef45b9",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "de",
                 "startTime": "5.15",
                 "endTime": "5.34",
-                "_id": "66fc18f09202e12fccef45ba"
+                "_id": "66fc18f09202e12fccef45ba",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "Europa",
                 "startTime": "5.34",
                 "endTime": "6.05",
-                "_id": "66fc18f09202e12fccef45bb"
+                "_id": "66fc18f09202e12fccef45bb",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "La",
                 "startTime": "6.44",
                 "endTime": "6.67",
-                "_id": "66fc18f09202e12fccef45bc"
+                "_id": "66fc18f09202e12fccef45bc",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "Viola,",
                 "startTime": "6.67",
                 "endTime": "7.2",
-                "_id": "66fc18f09202e12fccef45bd"
+                "_id": "66fc18f09202e12fccef45bd",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "Joni",
                 "startTime": "7.2",
                 "endTime": "7.72",
-                "_id": "66fc18f09202e12fccef45be"
+                "_id": "66fc18f09202e12fccef45be",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "They",
                 "startTime": "7.72",
                 "endTime": "7.94",
-                "_id": "66fc18f09202e12fccef45bf"
+                "_id": "66fc18f09202e12fccef45bf",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "did",
                 "startTime": "7.94",
                 "endTime": "8.22",
-                "_id": "66fc18f09202e12fccef45c0"
+                "_id": "66fc18f09202e12fccef45c0",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "it",
                 "startTime": "8.22",
                 "endTime": "8.42",
-                "_id": "66fc18f09202e12fccef45c1"
+                "_id": "66fc18f09202e12fccef45c1",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "to",
                 "startTime": "8.43",
                 "endTime": "8.65",
-                "_id": "66fc18f09202e12fccef45c2"
+                "_id": "66fc18f09202e12fccef45c2",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "money",
                 "startTime": "8.65",
                 "endTime": "9.14",
-                "_id": "66fc18f09202e12fccef45c3"
+                "_id": "66fc18f09202e12fccef45c3",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "the",
                 "startTime": "9.14",
                 "endTime": "9.3",
-                "_id": "66fc18f09202e12fccef45c4"
+                "_id": "66fc18f09202e12fccef45c4",
+                "meta": {
+                  "fontWeight": "normal",
+                  "fontStyle": "normal",
+                  "textDecoration": "none",
+                  "textColor": "black"
+                }
               },
               {
                 "word": "Longoria",

@@ -101,6 +101,14 @@ html, body {
   flex: 1;
   overflow: hidden;
 }
+.container .main-container .video-main-body .video-main-body-header {
+  width: 100%;
+  padding: 10px 20px;
+}
+.container .main-container .video-main-body .video-main-body-header .edit-btns {
+  display: flex;
+  gap: 10px;
+}
 .container .main-container .video-main-body .video-main-body-inner {
   display: flex;
   gap: 30px;

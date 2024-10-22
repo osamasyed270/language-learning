@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import videoInfo from "../videoTranscriptInfo.json";
+import { Bold, Italic, Underline  } from 'lucide-react';
 
 function VideoMainBody({ videos }) {
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
@@ -48,6 +49,31 @@ function VideoMainBody({ videos }) {
     setHighlightedWord({ phraseIndex, wordIndex });
   };
 
+  const applyStyle = (styleType, value) => {
+    const { phraseIndex, wordIndex } = highlightedWord;
+    if (phraseIndex === -1 || wordIndex === -1) return
+
+    setTranscriptPhrases(prevPhrases => {
+      const updatedPhrases = [...prevPhrases];
+      const wordMeta = { ...updatedPhrases[phraseIndex].words[wordIndex].meta };
+    
+      // if (wordMeta[styleType] === value) {
+      //   delete wordMeta[styleType];
+      //   console.log("deleted");
+        
+      // } else {
+      //   wordMeta[styleType] = value;
+      //   console.log("added");
+        
+      // }
+      wordMeta[styleType] = value;
+
+      updatedPhrases[phraseIndex].words[wordIndex].meta = wordMeta;
+
+      return updatedPhrases;
+    })
+  }
+
   const handleSplit = (direction) => {
     const { startIndex, endIndex, phraseIndex } = selectedRange;
 
@@ -92,11 +118,33 @@ function VideoMainBody({ videos }) {
 
   return (
     <div className='video-main-body'>
-      
+      <div className="video-main-body-header">
+        <div className="edit-btns">
+          {/* <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
+            <Bold />
+          </button>
+          <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
+            <Italic />
+          </button>
+          <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
+            <Underline />
+          </button> */}
+          {/* <input type='color' className="color-btn" onChange={(e) => applyStyle('textColor', e.target.value)}></input> */}
+        </div>
+      </div>
       <div className="video-main-body-inner">
         <div className='player-container'>
           <div id="video-player"></div>
           <div className="video-editing-bar">
+            <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
+              <Bold />
+            </button>
+            <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
+              <Italic />
+            </button>
+            <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
+              <Underline />
+            </button>
             <button onClick={() => handleSplit('backward')} className='split-btn'>Backward Split</button>
             <button onClick={() => handleSplit('forward')} className='split-btn'>Forward Split</button>
           </div>
@@ -107,6 +155,8 @@ function VideoMainBody({ videos }) {
               return (
                 <div className='sentence' key={phraseIndex}>
                   {phrase.words.map((item, itemIndex) => {
+                    const { fontWeight, fontStyle, textDecoration, textColor } = item.meta || {};
+
                     return (
                       <span 
                         key={itemIndex}
@@ -119,6 +169,12 @@ function VideoMainBody({ videos }) {
                           ${item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "active" : ""} 
                           ${highlightedWord.phraseIndex === phraseIndex && highlightedWord.wordIndex === itemIndex ? 'highlight' : ''}
                         `}
+                        style={{
+                          fontWeight: fontWeight || 'normal',
+                          fontStyle: fontStyle || 'normal',
+                          textDecoration: textDecoration || 'none',
+                          color: textColor || 'black',
+                        }}
                         >{item.word}</div>
                         <div> </div>
                       </span>
