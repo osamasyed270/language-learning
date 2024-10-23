@@ -171,12 +171,15 @@ html, body {
   display: inline;
   letter-spacing: 1px;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence .active {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .word {
+  cursor: pointer;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .active {
   color: rgb(0, 204, 255) !important;
   text-decoration: underline !important;
   font-weight: 700 !important;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence .highlight {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .highlight {
   background: #6896f2;
 }
 .container .video-controls-bar {

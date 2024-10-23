@@ -200,14 +200,18 @@ $video-control-bar-height: 80px;
                                     display: inline;
                                     letter-spacing: 1px;
                                 }
-                            }
-                            .active {
-                                color: rgb(0, 204, 255) !important;
-                                text-decoration: underline !important;
-                                font-weight: 700 !important;
-                            }
-                            .highlight {
-                                background: #6896f2;
+                                .word {
+                                    cursor: pointer;
+                                }
+
+                                .active {
+                                    color: rgb(0, 204, 255) !important;
+                                    text-decoration: underline !important;
+                                    font-weight: 700 !important;
+                                }
+                                .highlight {
+                                    background: #6896f2;
+                                }
                             }
                         }
                     }
