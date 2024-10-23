@@ -113,23 +113,17 @@ function VideoMainBody({ videos }) {
 
   return (
     <div className='video-main-body'>
-      
       <div className="video-main-body-inner">
+        <div className="video-editing-bar">
+          <button className="edit-btn bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}><Bold /></button>
+          <button className="edit-btn italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}><Italic /></button>
+          <button className="edit-btn underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}><Underline /></button>
+          <input type='color' className="color-btn" onChange={(e) => applyStyle('textColor', e.target.value)}></input>
+          <button className='edit-btn split-btn' onClick={() => handleSplit('backward')}><ArrowLeftFromLine />Split</button>
+          <button className='edit-btn split-btn' onClick={() => handleSplit('forward')}>Split<ArrowRightFromLine /></button>
+        </div>
         <div className='player-container'>
           <div id="video-player"></div>
-          <div className="video-editing-bar">
-            <button className="edit-btn bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
-              <Bold />
-            </button>
-            <button className="edit-btn italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
-              <Italic />
-            </button>
-            <button className="edit-btn underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
-              <Underline />
-            </button>
-            <button className='edit-btn split-btn' onClick={() => handleSplit('backward')}><ArrowLeftFromLine />Split</button>
-            <button className='edit-btn split-btn' onClick={() => handleSplit('forward')}>Split<ArrowRightFromLine /></button>
-          </div>
         </div>
         <div className='video-transcript-container'>
           <div className="video-transcript-inner">

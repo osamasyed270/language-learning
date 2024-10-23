@@ -122,13 +122,53 @@ $video-control-bar-height: 80px;
             overflow: hidden;
             
             .video-main-body-inner {
-                display: flex;
-                gap: 30px;
+                display: grid;
+                grid-template-columns: 420px 1fr;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "edit-bar edit-bar"
+                    "player transcript";
                 width: 100%;
                 height: 100%;
 
+                .video-editing-bar {
+                    grid-area: edit-bar;
+                    padding: 16px 50px;
+                    display: flex;
+                    gap: 10px;
+                    border-bottom: 1px solid #cccccc;
+                    overflow-x: auto;
+
+                    .edit-btn {
+                        display: flex;
+                        align-items: center;
+                        padding: 7px 10px;
+                        border: 1px solid #6896f2;
+                        color: #6896f2;
+                        background: #e9f0fd;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                        svg {
+                            height: 15px;
+                            width: 15px;
+                        }
+                    }
+                    .split-btn {
+                        gap: 3px;
+                    }
+
+                    input {
+                        height: 100%;
+                        width: 37px;
+                        border: 1px solid #6896f2;
+                        border-radius: 5px;
+                        background: #e9f0fd;
+                    }
+                }
+
                 .player-container {
-                    flex: 0 0 420px; 
+                    grid-area: player;
                     padding-top: 30px;
                     padding-left: 50px;
 
@@ -139,35 +179,14 @@ $video-control-bar-height: 80px;
                         display: block;
                     }
 
-                    .video-editing-bar {
-                        padding: 10px 0;
-                        display: flex;
-                        gap: 10px;
-
-                        .edit-btn {
-                            display: flex;
-                            align-items: center;
-                            padding: 7px 10px;
-                            border: 1px solid #6896f2;
-                            color: #6896f2;
-                            background: #e9f0fd;
-                            border-radius: 5px;
-                            cursor: pointer;
-
-                            svg {
-                                height: 15px;
-                                width: 15px;
-                            }
-                        }
-                        .split-btn {
-                            gap: 3px;
-                        }
-                    }
+                    
                 }
 
                 .video-transcript-container {
-                    flex: 1;
+                    grid-area: transcript;
+                    // flex: 1;
                     padding-top: 30px;
+                    padding-left: 30px;
                     padding-right: 50px;
                     overflow-y: auto;
 
@@ -379,11 +398,21 @@ $video-control-bar-height: 80px;
         .main-container {
             .video-main-body {
                 .video-main-body-inner {
-                    flex-direction: column;
-                    gap: 0;
-    
+                    grid-template-columns: 1fr;
+                    grid-template-areas:
+                        "player"
+                        "edit-bar"
+                        "transcript";
+
+                    .video-editing-bar {
+                        padding: 10px;
+                        background-color: #f7f9fc;
+                        box-shadow: 0px 0px 24px -11px rgba(0,0,0,0.5);
+                        border: none;
+                    }
+                    
                     .player-container {
-                        flex: 0 0 auto;
+                        width: 100%;
                         padding: 0;
 
                         #video-player {
@@ -391,9 +420,7 @@ $video-control-bar-height: 80px;
                         }
 
                         .video-editing-bar {
-                            padding: 10px 10px;
-                            background-color: #f7f9fc;
-                            box-shadow: 0px 0px 24px -11px rgba(0,0,0,0.5);
+                            padding: 10px 10px; 
                         }
                     }
     

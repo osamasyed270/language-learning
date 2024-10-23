@@ -102,28 +102,22 @@ html, body {
   overflow: hidden;
 }
 .container .main-container .video-main-body .video-main-body-inner {
-  display: flex;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "edit-bar edit-bar" "player transcript";
   width: 100%;
   height: 100%;
 }
-.container .main-container .video-main-body .video-main-body-inner .player-container {
-  flex: 0 0 420px;
-  padding-top: 30px;
-  padding-left: 50px;
-}
-.container .main-container .video-main-body .video-main-body-inner .player-container #video-player {
-  width: 100%;
-  height: 208px;
-  border-radius: 5px;
-  display: block;
-}
-.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar {
-  padding: 10px 0;
+.container .main-container .video-main-body .video-main-body-inner .video-editing-bar {
+  grid-area: edit-bar;
+  padding: 16px 50px;
   display: flex;
   gap: 10px;
+  border-bottom: 1px solid #cccccc;
+  overflow-x: auto;
 }
-.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .edit-btn {
+.container .main-container .video-main-body .video-main-body-inner .video-editing-bar .edit-btn {
   display: flex;
   align-items: center;
   padding: 7px 10px;
@@ -133,16 +127,35 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
 }
-.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .edit-btn svg {
+.container .main-container .video-main-body .video-main-body-inner .video-editing-bar .edit-btn svg {
   height: 15px;
   width: 15px;
 }
-.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .split-btn {
+.container .main-container .video-main-body .video-main-body-inner .video-editing-bar .split-btn {
   gap: 3px;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container {
-  flex: 1;
+.container .main-container .video-main-body .video-main-body-inner .video-editing-bar input {
+  height: 100%;
+  width: 37px;
+  border: 1px solid #6896f2;
+  border-radius: 5px;
+  background: #e9f0fd;
+}
+.container .main-container .video-main-body .video-main-body-inner .player-container {
+  grid-area: player;
   padding-top: 30px;
+  padding-left: 50px;
+}
+.container .main-container .video-main-body .video-main-body-inner .player-container #video-player {
+  width: 100%;
+  height: 208px;
+  border-radius: 5px;
+  display: block;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container {
+  grid-area: transcript;
+  padding-top: 30px;
+  padding-left: 30px;
   padding-right: 50px;
   overflow-y: auto;
 }
@@ -309,11 +322,17 @@ html, body {
 }
 @media (max-width: 680px) {
   .container .main-container .video-main-body .video-main-body-inner {
-    flex-direction: column;
-    gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas: "player" "edit-bar" "transcript";
+  }
+  .container .main-container .video-main-body .video-main-body-inner .video-editing-bar {
+    padding: 10px;
+    background-color: #f7f9fc;
+    box-shadow: 0px 0px 24px -11px rgba(0, 0, 0, 0.5);
+    border: none;
   }
   .container .main-container .video-main-body .video-main-body-inner .player-container {
-    flex: 0 0 auto;
+    width: 100%;
     padding: 0;
   }
   .container .main-container .video-main-body .video-main-body-inner .player-container #video-player {
@@ -321,8 +340,6 @@ html, body {
   }
   .container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar {
     padding: 10px 10px;
-    background-color: #f7f9fc;
-    box-shadow: 0px 0px 24px -11px rgba(0, 0, 0, 0.5);
   }
   .container .main-container .video-main-body .video-main-body-inner .video-transcript-container {
     padding: 10px 10px;
