@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import videoInfo from "../videoTranscriptInfo.json";
-import { Bold, Italic, Underline  } from 'lucide-react';
+import { Bold, Italic, Underline } from 'lucide-react'
 
 function VideoMainBody({ videos }) {
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
@@ -57,16 +57,16 @@ function VideoMainBody({ videos }) {
       const updatedPhrases = [...prevPhrases];
       const wordMeta = { ...updatedPhrases[phraseIndex].words[wordIndex].meta };
     
-      // if (wordMeta[styleType] === value) {
-      //   delete wordMeta[styleType];
-      //   console.log("deleted");
+      if (wordMeta[styleType] === value) {
+        delete wordMeta[styleType];
+        // console.log("deleted");
         
-      // } else {
-      //   wordMeta[styleType] = value;
-      //   console.log("added");
+      } else {
+        wordMeta[styleType] = value;
+        // console.log("added");
         
-      // }
-      wordMeta[styleType] = value;
+      }
+      // wordMeta[styleType] = value;
 
       updatedPhrases[phraseIndex].words[wordIndex].meta = wordMeta;
 
@@ -120,15 +120,9 @@ function VideoMainBody({ videos }) {
     <div className='video-main-body'>
       <div className="video-main-body-header">
         <div className="edit-btns">
-          {/* <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
-            <Bold />
-          </button>
-          <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
-            <Italic />
-          </button>
-          <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
-            <Underline />
-          </button> */}
+          {/* <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>Bold</button>
+          <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>Italic</button>
+          <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>Underline</button> */}
           {/* <input type='color' className="color-btn" onChange={(e) => applyStyle('textColor', e.target.value)}></input> */}
         </div>
       </div>
