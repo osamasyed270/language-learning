@@ -120,16 +120,6 @@ $video-control-bar-height: 80px;
         .video-main-body {
             flex: 1;
             overflow: hidden;
-
-            .video-main-body-header {
-                width: 100%;
-                padding: 10px 20px;
-
-                .edit-btns {
-                    display: flex;
-                    gap: 10px;
-                }
-            }
             
             .video-main-body-inner {
                 display: flex;
@@ -154,13 +144,23 @@ $video-control-bar-height: 80px;
                         display: flex;
                         gap: 10px;
 
-                        .split-btn {
+                        .edit-btn {
+                            display: flex;
+                            align-items: center;
                             padding: 7px 10px;
                             border: 1px solid #6896f2;
                             color: #6896f2;
                             background: #e9f0fd;
                             border-radius: 5px;
                             cursor: pointer;
+
+                            svg {
+                                height: 15px;
+                                width: 15px;
+                            }
+                        }
+                        .split-btn {
+                            gap: 3px;
                         }
                     }
                 }

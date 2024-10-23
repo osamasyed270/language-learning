@@ -101,14 +101,6 @@ html, body {
   flex: 1;
   overflow: hidden;
 }
-.container .main-container .video-main-body .video-main-body-header {
-  width: 100%;
-  padding: 10px 20px;
-}
-.container .main-container .video-main-body .video-main-body-header .edit-btns {
-  display: flex;
-  gap: 10px;
-}
 .container .main-container .video-main-body .video-main-body-inner {
   display: flex;
   gap: 30px;
@@ -131,13 +123,22 @@ html, body {
   display: flex;
   gap: 10px;
 }
-.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .split-btn {
+.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .edit-btn {
+  display: flex;
+  align-items: center;
   padding: 7px 10px;
   border: 1px solid #6896f2;
   color: #6896f2;
   background: #e9f0fd;
   border-radius: 5px;
   cursor: pointer;
+}
+.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .edit-btn svg {
+  height: 15px;
+  width: 15px;
+}
+.container .main-container .video-main-body .video-main-body-inner .player-container .video-editing-bar .split-btn {
+  gap: 3px;
 }
 .container .main-container .video-main-body .video-main-body-inner .video-transcript-container {
   flex: 1;

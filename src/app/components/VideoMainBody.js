@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import videoInfo from "../videoTranscriptInfo.json";
-import { Bold, Italic, Underline } from 'lucide-react'
+import { Bold, Italic, Underline, ArrowLeftFromLine , ArrowRightFromLine } from 'lucide-react'
 
 function VideoMainBody({ videos }) {
   const [videoCurrentTime, setVideoCurrentTime] = useState(0);
@@ -59,14 +59,9 @@ function VideoMainBody({ videos }) {
     
       if (wordMeta[styleType] === value) {
         delete wordMeta[styleType];
-        // console.log("deleted");
-        
       } else {
         wordMeta[styleType] = value;
-        // console.log("added");
-        
       }
-      // wordMeta[styleType] = value;
 
       updatedPhrases[phraseIndex].words[wordIndex].meta = wordMeta;
 
@@ -118,29 +113,22 @@ function VideoMainBody({ videos }) {
 
   return (
     <div className='video-main-body'>
-      <div className="video-main-body-header">
-        <div className="edit-btns">
-          {/* <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>Bold</button>
-          <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>Italic</button>
-          <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>Underline</button> */}
-          {/* <input type='color' className="color-btn" onChange={(e) => applyStyle('textColor', e.target.value)}></input> */}
-        </div>
-      </div>
+      
       <div className="video-main-body-inner">
         <div className='player-container'>
           <div id="video-player"></div>
           <div className="video-editing-bar">
-            <button className="bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
+            <button className="edit-btn bold-btn" onClick={() => applyStyle('fontWeight', 'bold')}>
               <Bold />
             </button>
-            <button className="italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
+            <button className="edit-btn italic-btn" onClick={() => applyStyle('fontStyle', 'italic')}>
               <Italic />
             </button>
-            <button className="underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
+            <button className="edit-btn underline-btn" onClick={() => applyStyle('textDecoration', 'underline')}>
               <Underline />
             </button>
-            <button onClick={() => handleSplit('backward')} className='split-btn'>Backward Split</button>
-            <button onClick={() => handleSplit('forward')} className='split-btn'>Forward Split</button>
+            <button className='edit-btn split-btn' onClick={() => handleSplit('backward')}><ArrowLeftFromLine />Split</button>
+            <button className='edit-btn split-btn' onClick={() => handleSplit('forward')}>Split<ArrowRightFromLine /></button>
           </div>
         </div>
         <div className='video-transcript-container'>
