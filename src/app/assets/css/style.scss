@@ -184,7 +184,6 @@ $video-control-bar-height: 80px;
 
                 .video-transcript-container {
                     grid-area: transcript;
-                    // flex: 1;
                     padding-top: 30px;
                     padding-left: 30px;
                     padding-right: 50px;
@@ -203,9 +202,9 @@ $video-control-bar-height: 80px;
                                 }
                             }
                             .active {
-                                color: rgb(0, 204, 255);
-                                text-decoration: underline;
-                                font-weight: 700;
+                                color: rgb(0, 204, 255) !important;
+                                text-decoration: underline !important;
+                                font-weight: 700 !important;
                             }
                             .highlight {
                                 background: #6896f2;

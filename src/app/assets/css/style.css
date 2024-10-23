@@ -172,9 +172,9 @@ html, body {
   letter-spacing: 1px;
 }
 .container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence .active {
-  color: rgb(0, 204, 255);
-  text-decoration: underline;
-  font-weight: 700;
+  color: rgb(0, 204, 255) !important;
+  text-decoration: underline !important;
+  font-weight: 700 !important;
 }
 .container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence .highlight {
   background: #6896f2;
