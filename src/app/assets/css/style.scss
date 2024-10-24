@@ -195,23 +195,50 @@ $video-control-bar-height: 80px;
                         gap: 40px;
                         .sentence {
                             line-height: 30px;
-                            span {
-                                div {
+                            &>span {
+                                &>div {
                                     display: inline;
-                                    letter-spacing: 1px;
-                                }
-                                .word {
-                                    cursor: pointer;
+                                    
+                                    .word {
+                                        letter-spacing: 1px;
+                                        cursor: pointer;
+                                    }
+                                    .active {
+                                        color: rgb(0, 204, 255) !important;
+                                        text-decoration: underline !important;
+                                        font-weight: 700 !important;
+                                    }
+                                    .highlight {
+                                        background: #6896f2;
+                                    }
+
+                                    .word-tag {
+                                        position: relative;
+
+                                        .tag-info {
+                                            position: absolute;
+                                            top: -250%;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                            display: none;
+                                            gap: 5px;
+                                            background: #e9f0fd;
+                                            color: #6896f2;
+                                            border: 1px solid #6896f2;
+                                            padding: 0 10px;
+                                            border-radius: 5px;
+                                        }
+
+                                        .tag-icon {
+                                            cursor: pointer;
+                                        }
+
+                                        &:hover > .tag-info {
+                                            display: flex;
+                                        }
+                                    }
                                 }
 
-                                .active {
-                                    color: rgb(0, 204, 255) !important;
-                                    text-decoration: underline !important;
-                                    font-weight: 700 !important;
-                                }
-                                .highlight {
-                                    background: #6896f2;
-                                }
                             }
                         }
                     }

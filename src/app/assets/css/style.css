@@ -167,20 +167,42 @@ html, body {
 .container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence {
   line-height: 30px;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span div {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div {
   display: inline;
-  letter-spacing: 1px;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .word {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .word {
+  letter-spacing: 1px;
   cursor: pointer;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .active {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .active {
   color: rgb(0, 204, 255) !important;
   text-decoration: underline !important;
   font-weight: 700 !important;
 }
-.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence span .highlight {
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .highlight {
   background: #6896f2;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .word-tag {
+  position: relative;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .word-tag .tag-info {
+  position: absolute;
+  top: -250%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  gap: 5px;
+  background: #e9f0fd;
+  color: #6896f2;
+  border: 1px solid #6896f2;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .word-tag .tag-icon {
+  cursor: pointer;
+}
+.container .main-container .video-main-body .video-main-body-inner .video-transcript-container .video-transcript-inner .sentence > span > div .word-tag:hover > .tag-info {
+  display: flex;
 }
 .container .video-controls-bar {
   width: 100%;

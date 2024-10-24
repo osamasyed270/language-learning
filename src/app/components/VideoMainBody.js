@@ -139,19 +139,29 @@ function VideoMainBody({ videos }) {
                         onMouseDown={() => handleWordSelect(phraseIndex, itemIndex, 'start')}
                         onMouseUp={() => handleWordSelect(phraseIndex, itemIndex, 'end')}
                       >
-                        <div 
-                        className=
-                        {`word 
-                          ${item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "active" : ""} 
-                          ${highlightedWord.phraseIndex === phraseIndex && highlightedWord.wordIndex === itemIndex ? 'highlight' : ''}
-                        `}
-                        style={{
-                          fontWeight: fontWeight || 'normal',
-                          fontStyle: fontStyle || 'normal',
-                          textDecoration: textDecoration || 'none',
-                          color: textColor || 'black',
-                        }}
-                        >{item.word}</div>
+                        <div>
+                          <span 
+                          className=
+                          {`word 
+                            ${item.startTime && item.endTime && videoCurrentTime >= item.startTime && videoCurrentTime <= item.endTime ? "active" : ""} 
+                            ${highlightedWord.phraseIndex === phraseIndex && highlightedWord.wordIndex === itemIndex ? 'highlight' : ''}
+                          `}
+                          style={{
+                            fontWeight: fontWeight || 'normal',
+                            fontStyle: fontStyle || 'normal',
+                            textDecoration: textDecoration || 'none',
+                            color: textColor || 'black',
+                          }}
+                          >{item.word}</span>
+
+                          {item.tags?.speaker?.length > 0 ?
+                            <span className="word-tag">
+                              <span className='tag-info'><span>{item.tags.speaker[0].tag}</span> <span>:</span> <span>{item.tags.speaker[0].value}</span></span>
+                              <span className='tag-icon'>🔊</span>
+                            </span> : ""
+                          }
+                        </div>
+
                         <div> </div>
                       </span>
                     );

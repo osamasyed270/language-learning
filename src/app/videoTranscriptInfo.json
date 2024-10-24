@@ -4881,6 +4881,15 @@
                   "fontStyle": "normal",
                   "textDecoration": "none",
                   "textColor": "black"
+                },
+                "tags": {
+                  "custom": [],
+                  "speaker": [
+                    {
+                      "tag": "Meaning",
+                      "value": "Hello"
+                    }
+                  ]
                 }
               },
               {
@@ -4941,6 +4950,15 @@
                   "fontStyle": "normal",
                   "textDecoration": "none",
                   "textColor": "black"
+                },
+                "tags": {
+                  "custom": [],
+                  "speaker": [
+                    {
+                      "tag": "Meaning",
+                      "value": "Hello"
+                    }
+                  ]
                 }
               },
               {
@@ -5073,7 +5091,16 @@
                 "word": "Marta",
                 "startTime": "16.74",
                 "endTime": "17.18",
-                "_id": "66fc18f09202e12fccef45cc"
+                "_id": "66fc18f09202e12fccef45cc",
+                "tags": {
+                  "custom": [],
+                  "speaker": [
+                    {
+                      "tag": "Meaning",
+                      "value": "Hello"
+                    }
+                  ]
+                }
               },
               {
                 "word": "de",
@@ -5121,7 +5148,16 @@
                 "word": "Toumani",
                 "startTime": "21.66",
                 "endTime": "22.56",
-                "_id": "66fc18f09202e12fccef45d4"
+                "_id": "66fc18f09202e12fccef45d4",
+                "tags": {
+                  "custom": [],
+                  "speaker": [
+                    {
+                      "tag": "Meaning",
+                      "value": "Hello"
+                    }
+                  ]
+                }
               },
               {
                 "word": "public",
