@@ -95,6 +95,9 @@ function VideoMainBody({ videos }) {
       return [phrase];
     });
 
+    console.log(updatedPhrases);
+    
+
     const flattenedPhrases = updatedPhrases.flat();
 
     setTranscriptPhrases(flattenedPhrases);

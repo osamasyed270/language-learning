@@ -3,7 +3,8 @@
 import React, {useState, useEffect} from 'react';
 import PageHeader from "./components/PageHeader";
 import VideoPlaylist from "./components/VideoPlaylist";
-import VideoMainBody from "./components/VideoMainBody";
+// import VideoMainBody from "./components/VideoMainBody";
+import MainBody from "./components/MainBody";
 import VideoControlsBar from "./components/VideoControlsBar";
 
 export default function Home() {
@@ -30,7 +31,8 @@ export default function Home() {
 
       <div className="main-container">
         <VideoPlaylist sidebarShow={sidebarShow} hideSidebar={hideSidebar}/>
-        <VideoMainBody />
+        {/* <VideoMainBody /> */}
+        <MainBody />
       </div>
       
       <VideoControlsBar toggleSidebarVisibility={toggleSidebarVisibility} />
